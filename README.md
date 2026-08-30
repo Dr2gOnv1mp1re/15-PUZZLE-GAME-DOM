@@ -3,7 +3,7 @@
 A browser-based sliding tile puzzle built with **HTML, CSS, and JavaScript**, using direct DOM manipulation to render and update the board — created as part of a Full Stack Web Development case study.
 
 ## 🔗 Live Demo
-[Play it here](https://dr2gonv1mp1re.github.io/15-PUZZLE-GAME-DOM/) <!-- update this link once GitHub Pages is live -->
+Download and run it in the VS Code
 
 ## 📖 Problem Statement
 Design a web page for the Game of 15 — a 4×4 board with 15 numbered tiles and one empty slot. Any tile adjacent to the empty slot can be moved into it by clicking. The goal is to arrange the tiles in sequential order using the DOM and click events.
@@ -47,5 +47,5 @@ Design a web page for the Game of 15 — a 4×4 board with 15 numbered tiles and
 3. Arrange all tiles from 1–15 in order to win
 
 ## 👤 Author
-Harini N S
-B.Tech CSE, SRM Institute of Science and Technology, Trichy
+Harini N S, RA2411003050379
+B.Tech CSE F, SRM Institute of Science and Technology, Trichy
