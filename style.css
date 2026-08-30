@@ -1,0 +1,220 @@
+/* ---------- Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: radial-gradient(ellipse at bottom, #10102a 0%, #05050f 100%);
+  overflow: hidden;
+  color: #f5f5ff;
+}
+
+/* ---------- Floating space background ---------- */
+/* Three layered star fields moving at different speeds = parallax "floating" effect */
+.stars,
+.stars2,
+.stars3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  z-index: 0;
+}
+
+.stars {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 120px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent),
+    radial-gradient(1px 1px at 200px 200px, #fff, transparent);
+  background-size: 250px 250px;
+  animation: drift 60s linear infinite;
+  opacity: 0.6;
+}
+
+.stars2 {
+  background-image:
+    radial-gradient(1.5px 1.5px at 50px 80px, #b9d0ff, transparent),
+    radial-gradient(1px 1px at 130px 40px, #b9d0ff, transparent),
+    radial-gradient(1px 1px at 180px 160px, #b9d0ff, transparent);
+  background-size: 300px 300px;
+  animation: drift 100s linear infinite reverse;
+  opacity: 0.4;
+}
+
+.stars3 {
+  background-image:
+    radial-gradient(2px 2px at 60px 20px, #9d8cff, transparent),
+    radial-gradient(1.5px 1.5px at 160px 100px, #9d8cff, transparent);
+  background-size: 400px 400px;
+  animation: drift 140s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1000px 1000px;
+  }
+}
+
+/* Gentle floating bob applied to the whole puzzle card */
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ---------- Layout ---------- */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 30px 35px 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: floaty 6s ease-in-out infinite;
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #8ec5ff, #c58eff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #b7b7d9;
+  margin-bottom: 20px;
+}
+
+.info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.info-box {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+#shuffleBtn {
+  cursor: pointer;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #10102a;
+  background: linear-gradient(90deg, #8ec5ff, #c58eff);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+#shuffleBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(142, 197, 255, 0.4);
+}
+
+#shuffleBtn:active {
+  transform: translateY(0);
+}
+
+/* ---------- Board & Tiles ---------- */
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  grid-template-rows: repeat(4, 70px);
+  gap: 8px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  color: #10102a;
+  background: linear-gradient(145deg, #ffffff, #cdd7ff);
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.2s ease;
+}
+
+.tile:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+}
+
+.tile.empty {
+  background: transparent;
+  box-shadow: none;
+  cursor: default;
+}
+
+.tile.solved {
+  background: linear-gradient(145deg, #9dffb0, #6ee38a);
+}
+
+/* ---------- Win message ---------- */
+.win-msg {
+  margin-top: 18px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #9dffb0;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 400px) {
+  .board {
+    grid-template-columns: repeat(4, 58px);
+    grid-template-rows: repeat(4, 58px);
+  }
+  .tile {
+    font-size: 1.2rem;
+  }
+  .wrapper {
+    padding: 22px 18px 30px;
+  }
+}

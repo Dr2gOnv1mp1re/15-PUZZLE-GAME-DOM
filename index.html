@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15 Puzzle Game — Sliding Puzzle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <main class="wrapper">
+      <h1>15 Puzzle Game</h1>
+      <p class="subtitle">
+        Arrange the tiles in order — click a tile next to the empty slot to move
+        it.
+      </p>
+
+      <div class="info-bar">
+        <div class="info-box">Moves: <span id="moveCount">0</span></div>
+        <button id="shuffleBtn">🔀 Shuffle</button>
+      </div>
+
+      <!-- The board is intentionally empty in HTML.
+         All 16 tiles are created dynamically via the DOM (document.createElement)
+         in script.js — nothing is hardcoded here. -->
+      <div id="board" class="board"></div>
+
+      <p id="winMsg" class="win-msg hidden">🎉 Solved! Great job.</p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
