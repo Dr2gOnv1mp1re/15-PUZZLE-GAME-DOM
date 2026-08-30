@@ -3,9 +3,7 @@
 A browser-based sliding tile puzzle built with **HTML, CSS, and JavaScript**, using direct DOM manipulation to render and update the board — created as part of a Full Stack Web Development case study.
 
 ## 🔗 Live Demo
-[Play the 15 Puzzle Game here!](YOUR_VERCEL_LIVE_URL_HERE)
-
-*(Replace `YOUR_VERCEL_LIVE_URL_HERE` with the actual Vercel URL you get after deployment)*
+https://15-puzzle-game-dom.vercel.app/
 
 ## 📖 Problem Statement
 Design a web page for the Game of 15 — a 4×4 board with 15 numbered tiles and one empty slot. Any tile adjacent to the empty slot can be moved into it by clicking. The goal is to arrange the tiles in sequential order using the DOM and click events.
